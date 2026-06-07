@@ -1,7 +1,7 @@
-import { Pool } from 'pg';
+import { Pool } from 'pg'
 
-import { env } from '../config/env.js';
+import { env } from '../config/env.js'
 
 export const pool = new Pool({
   connectionString: env.DATABASE_URL
-});
+})
