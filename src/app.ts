@@ -1,11 +1,19 @@
 import express from 'express';
 import { ZodError } from 'zod';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { urlRouter } from './routes/urlRoutes.js';
 
 const app = express();
+const publicDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 
 app.use(express.json());
+app.use(express.static(publicDir));
+
+app.get('/', (_req, res) => {
+  res.sendFile(join(publicDir, 'index.html'));
+});
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
