@@ -1,6 +1,9 @@
-import app from './app.js';
+import 'dotenv/config';
 
-const port = Number(process.env.PORT ?? 3000);
+import app from './app.js';
+import { env } from './config/env.js';
+
+const port = env.PORT;
 
 app.listen(port, () => {
   console.log(`URL shortener API running on port ${port}`);
