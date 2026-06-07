@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="eyebrow">Dockerized URL Shortener</div>
+        <h1>Short links with a clean API and a simple interface.</h1>
+        <p>
+          Paste a long URL, get a short link, and use the same app to redirect.
+          Built to practice Docker, PostgreSQL, CI/CD, and system design basics.
+        </p>
+      </section>
+
+      <section class="card">
+        <form id="shorten-form" class="form">
+          <label for="originalUrl">Long URL</label>
+          <div class="input-row">
+            <input
+              id="originalUrl"
+              name="originalUrl"
+              type="url"
+              placeholder="https://example.com/very/long/link"
+              required
+            />
+            <button type="submit">Shorten</button>
+          </div>
+        </form>
+
+        <div class="result" id="result" hidden>
+          <div class="result-label">Your short link</div>
+          <a id="shortUrl" href="#" target="_blank" rel="noreferrer"></a>
+          <button id="copyButton" type="button">Copy</button>
+        </div>
+
+        <p class="status" id="status">Ready.</p>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
