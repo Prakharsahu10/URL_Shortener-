@@ -26,3 +26,9 @@ Open:
 ```text
 http://localhost:3001
 ```
+
+## Tests
+
+```bash
+npm test
+```

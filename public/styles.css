@@ -112,7 +112,9 @@ button {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
 }
 
 button:hover {

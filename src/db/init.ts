@@ -1,4 +1,4 @@
-import { pool } from './pool.js';
+import { pool } from './pool.js'
 
 export async function initializeDatabase(): Promise<void> {
   try {
@@ -9,17 +9,23 @@ export async function initializeDatabase(): Promise<void> {
         original_url TEXT NOT NULL UNIQUE,
         created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
       )
-    `);
+    `)
 
     await pool.query(`
       CREATE INDEX IF NOT EXISTS idx_urls_code ON urls (code)
-    `);
+    `)
   } catch (error) {
-    if (error instanceof Error && 'code' in error && (error as { code?: string }).code === 'ECONNREFUSED') {
-      console.warn('PostgreSQL is unavailable. Starting in demo mode with in-memory storage.');
-      return;
+    if (
+      error instanceof Error &&
+      'code' in error &&
+      (error as { code?: string }).code === 'ECONNREFUSED'
+    ) {
+      console.warn(
+        'PostgreSQL is unavailable. Starting in demo mode with in-memory storage.'
+      )
+      return
     }
 
-    throw error;
+    throw error
   }
 }
